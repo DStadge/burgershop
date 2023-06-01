@@ -1,37 +1,43 @@
 package de.iav.mucjave231burgershop.service;
 
+import de.iav.mucjave231burgershop.model.Burger;
+import de.iav.mucjave231burgershop.model.Menue;
+import de.iav.mucjave231burgershop.repository.BurgerRepository;
+import de.iav.mucjave231burgershop.repository.MenueRepository;
+
+import java.awt.*;
 import java.util.List;
 
 public class ShopService {
 
     // Abhängigkeiten -> Der ShopService BRAUCHT diese Repositories
-    private final ProductRepository productRepository;
-    private final OrderRepository orderRepository;
+    private final BurgerRepository burgerRepository;
+    private final MenueRepository menueRepository;
 
-    public ShopService(ProductRepository productRepository, OrderRepository orderRepository) {
-        this.productRepository = productRepository;
-        this.orderRepository = orderRepository;
+    public ShopService(BurgerRepository burgerRepository, MenueRepository menueRepository) {
+        this.burgerRepository = burgerRepository;
+        this.menueRepository = menueRepository;
     }
 
-    public Order getOrderById(String id) {
-        return orderRepository.getOrderById(id);
+    public Menue getMenueById(String id) {
+        return menueRepository.getMenueById(id);
     }
 
-    public Product getProductById(String id) {
-        return productRepository.getProductById(id);
+    public Burger getProductById(String id) {
+        return burgerRepository.getBurgerById(id);
     }
 
-    public List<Product> listProducts() {
-        return productRepository.list();
+    public List<Burger> listBurgers() {
+        return burgerRepository.list();
     }
 
     // ShopService greift auf das Repository zu
-    public List<Order> listOrders() {
-        return orderRepository.list();
+    public List<Menue> listMenues() {
+        return menueRepository.list();
     }
 
-    public void addOrder(Order orderToAdd) {
-        orderRepository.addOrder(orderToAdd);
+    public void addMenue(Menue menueToAdd) {
+        menueRepository.addMenue(menueToAdd);
     }
 }
 

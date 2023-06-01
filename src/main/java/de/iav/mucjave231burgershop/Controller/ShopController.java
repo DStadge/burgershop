@@ -14,7 +14,8 @@ public class ShopController {
 
 
     @GetMapping("/menue")
-    public List<Burger> allBurgers(){return }
+    public List<Burger> allBurgers(){return allBurgers();
+    }
 
 
 
