@@ -1,15 +1,13 @@
 package de.iav.mucjave231burgershop.repository;
 
 import de.iav.mucjave231burgershop.exception.MenueNotFoundException;
-import de.iav.mucjave231burgershop.model.Burger;
 import de.iav.mucjave231burgershop.model.Menue;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class MenueRepository {
-
-
 
     private final List<Menue> menues;
 
@@ -31,7 +29,7 @@ public class MenueRepository {
         return menues;
     }
 
-    public Burger getOrderById(String idOfRequestedMenue) {
+    public Menue getMenueById(String idOfRequestedMenue) {
         // for-each Schleife
         // Wir "schauen" uns die orders Liste Stück für Stück an
         // singleOrderFromList -> Das Objekt aus der Liste das wir uns anschauen
@@ -46,13 +44,14 @@ public class MenueRepository {
         // Soll eine Exception geworfen werden
         throw new MenueNotFoundException(idOfRequestedMenue);
     }
-/*
-    public void addMeune(Menue menueToAdd) {menues.add(menueToAdd);
+
+    public void addMenue(Menue menueToAdd) {menues.add(menueToAdd);
     }
 
-    private void addInitialMenues() {
-        this.addMenue(new Burger("1", List.of(new Menue("Product-1", "Georgischer Rotwein"), new Menue("Product-2", "Franz. Chardonnay";
+private void addInitialMenues() {
+
+        this.addMenue (new Menue("1", "6.99", "Mac", "Pommes","Cola"));
 
     }
-*/
+
 }
